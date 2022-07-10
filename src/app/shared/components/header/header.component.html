@@ -1,5 +1,5 @@
 <!-- Page Header Start-->
-<div class="page-header" [class.close_icon]="navServices.collapseSidebar">
+<div class="page-header shadow" [class.close_icon]="navServices.collapseSidebar">
   <div class="header-wrapper row m-0">
     <app-search></app-search>
     <div class="header-logo-wrapper">
@@ -14,13 +14,10 @@
       </div>
     </div>
     <div class="left-header col horizontal-wrapper pl-0">
-      <app-mega-menu></app-mega-menu>
+      <!-- <app-mega-menu></app-mega-menu> -->
     </div>
     <div class="nav-right col-8 pull-right right-header p-0">
       <ul class="nav-menus">
-        <li class="language-nav" (click)="languageToggle()">
-          <app-languages></app-languages>
-        </li>
         <li>
           <span class="header-search" (click)="searchToggle()">
             <app-feather-icons [icon]="'search'"></app-feather-icons>
@@ -29,28 +26,31 @@
         <li class="onhover-dropdown">
           <app-notification></app-notification>
         </li>
-        <li class="onhover-dropdown">
+        <!-- <li class="onhover-dropdown">
           <app-bookmark></app-bookmark>
-        </li>
+        </li> -->
         <li>
           <div class="mode" (click)="layoutToggle()">
             <i class="fa fa-moon-o" *ngIf="!dark"></i>
             <i class="fa fa-lightbulb-o" *ngIf="dark"></i>
           </div>
         </li>
-        <li class="cart-nav onhover-dropdown">
+        <!-- <li class="cart-nav onhover-dropdown">
           <app-cart></app-cart>
-        </li>
-        <li class="onhover-dropdown">
+        </li> -->
+        <!-- <li class="onhover-dropdown">
           <app-message-box></app-message-box>
-        </li>
+        </li> -->
         <li class="maximize">
           <a class="text-dark" href="javascript:void(0)" (click)="toggleFullScreen()">
             <app-feather-icons [icon]="'maximize'"></app-feather-icons>
           </a>
         </li>
+        <li class="language-nav" (click)="languageToggle()">
+          <app-languages></app-languages>
+        </li>
         <li class="profile-nav onhover-dropdown p-0">
-           <app-my-account></app-my-account>
+          <app-my-account></app-my-account>
         </li>
       </ul>
     </div>

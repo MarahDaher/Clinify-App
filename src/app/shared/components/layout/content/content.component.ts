@@ -1,9 +1,11 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import * as feather from 'feather-icons';
 import { LayoutService } from '../../../services/layout.service';
 import { NavService } from '../../../services/nav.service';
 import { fadeInAnimation } from '../../../data/router-animation/router-animation';
+import { TranslateService } from '@ngx-translate/core';
+import { LoaderComponent } from '../../loader/loader.component';
 
 @Component({
   selector: 'app-content',
@@ -11,12 +13,22 @@ import { fadeInAnimation } from '../../../data/router-animation/router-animation
   styleUrls: ['./content.component.scss'],
   animations: [fadeInAnimation]
 })
-export class ContentComponent implements OnInit, AfterViewInit {
-  
-  constructor(private route: ActivatedRoute, public navServices: NavService, 
-    public layout: LayoutService) {
+export class ContentComponent implements OnInit, AfterViewInit{
+  @ViewChild('loader') loader: LoaderComponent
+
+  constructor(
+    private route: ActivatedRoute, 
+    public navServices: NavService, 
+    public layout: LayoutService,
+    public translate : TranslateService
+    ) {
       this.route.queryParams.subscribe((params) => {
         this.layout.config.settings.layout = params.layout ? params.layout : this.layout.config.settings.layout
+      });
+      // reload loader component
+      translate.onLangChange.subscribe(res=>{
+        this.loader.show = true;
+        this.loader.ngOnInit();
       })
   }
     

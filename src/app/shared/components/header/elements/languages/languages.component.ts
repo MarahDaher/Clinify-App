@@ -17,32 +17,39 @@ export class LanguagesComponent implements OnInit {
     type: 'US',
     icon: 'us'
   },
+  // {
+  //   language: 'Español',
+  //   code: 'es',
+  //   icon: 'es'
+  // },
+  // {
+  //   language: 'Français',
+  //   code: 'fr',
+  //   icon: 'fr'
+  // },
+  // {
+  //   language: 'Português',
+  //   code: 'pt',
+  //   type: 'BR',
+  //   icon: 'pt'
+  // },
   {
-    language: 'Español',
-    code: 'es',
-    icon: 'es'
-  },
-  {
-    language: 'Français',
-    code: 'fr',
-    icon: 'fr'
-  },
-  {
-    language: 'Português',
-    code: 'pt',
-    type: 'BR',
-    icon: 'pt'
-  }]
+    language: 'العربية',
+    code: 'ar',
+    type: 'AR',
+    icon: 'sy'
+  }];
 
-  public selectedLanguage: any = {
-    language: 'English',
-    code: 'en',
-    type: 'US',
-    icon: 'us'
-  }
+  public selectedLanguage: any =   {
+    language: 'العربية',
+    code: 'ar',
+    type: 'AR',
+    icon: 'sy'
+  };
   
-  constructor(private translate: TranslateService,
-    public navServices: NavService) { }
+  constructor(
+    private translate: TranslateService,
+    public navServices: NavService) {}
 
   ngOnInit() {
   }
