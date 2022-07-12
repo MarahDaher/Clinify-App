@@ -1,0 +1,228 @@
+<app-breadcrumb [title]="'AddNewClinic'" [items]="['Settings', 'Clinics']" [active_item]="'NewClinic'"></app-breadcrumb>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <form class="form-wizard" id="regForm">
+            <aw-wizard [disableNavigationBar]='true'>
+              <!--First Step-->
+              <aw-wizard-step>
+                <form [formGroup]="firstFormGroup">
+                  <div class="form-group">
+                    <label for="ClinicName" class="h6 font-weight-bold">{{'ClinicName' | translate }}:</label>
+                    <input class="form-control" type="text" required="required" formControlName="clinicName" onlyAlphabets>
+                    <ng-container class="invalid"
+                      *ngIf="firstFormGroup.get('clinicName').hasError('required') && firstFormGroup.get('clinicName').touched">
+                      <p class="text-danger">
+                        {{'ClinicNameRequired' | translate}}
+                      </p>
+                    </ng-container>
+                  </div>
+                  <div *ngIf=""></div>
+
+                  <div class="form-group m-t-15">
+                    <label for="email" class="h6 font-weight-bold">{{'EmailAddress' | translate}}:</label>
+                    <input class="form-control" type="email"  placeholder="name@example.com" formControlName="email">
+                    <ng-container class="invalid"
+                      *ngIf="firstFormGroup.get('email').hasError('required') && firstFormGroup.get('email').touched">
+                      <p class="text-danger">
+                        {{'EmailRequired' | translate}}
+                      </p>
+                      </ng-container>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="h6 font-weight-bold">{{'Password' | translate}}:</label>
+                    <input class="form-control" type="password" placeholder="********"  formControlName="password">
+                    <ng-container class="invalid"
+                      *ngIf="firstFormGroup.get('password').hasError('required') && firstFormGroup.get('password').touched">
+                      <p class="text-danger">
+                        {{'PasswordRequired' | translate}}
+                      </p>
+                    </ng-container>
+                  </div>
+
+                  <div class="form-group" *ngIf="firstFormGroup.get('password').valid">
+                    <label class="h6 font-weight-bold">{{'ConfirmPassword' | translate}}:</label>
+                    <input class="form-control" type="password" placeholder="********" formControlName="cnfPassword">
+                    <ng-container class="invalid"
+                      *ngIf="firstFormGroup.get('cnfPassword').hasError('required') && firstFormGroup.get('cnfPassword').touched">
+                      <p class="text-danger">
+                        {{'ConfirmPasswordRequired' | translate}}
+                      </p>
+                    </ng-container>
+                    <ng-container class="invalid"
+                      *ngIf="firstFormGroup.get('cnfPassword').hasError('mustMatch') && firstFormGroup.get('cnfPassword').touched">
+                      <p class="text-danger">
+                        {{'PasswordsDoesntmatch' | translate}}
+                      </p>
+                    </ng-container>
+                  </div>
+                  <button class="btn btn-primary pull-right" type="submit" awNextStep>{{'Next' | translate}}</button>
+                </form>
+              </aw-wizard-step>
+
+              <!--Second Step-->
+              <aw-wizard-step>
+                <form [formGroup]="secondFormGroup">
+                  <div class="row">
+                    <div class="col-xl-6">
+                      <div class="form-group">
+                        <label for="country" class="h6 font-weight-bold">{{'Country' | translate}}:</label>
+                        <ng-select class="js-example-basic-multiple" [placeholder]="'SelectCountry' | translate" formControlName="country" [multiple]="false" [dir]="utility.projectDirection">
+                          <ng-option *ngFor="let country of countrylist" [value]="country.id">{{ country.name | translate}}</ng-option>
+                        </ng-select>
+                        <ng-container class="invalid"
+                          *ngIf="secondFormGroup.get('country').hasError('country') && secondFormGroup.get('country').touched">
+                          <p class="text-danger">{{'CountryRequired' | translate}}</p>
+                        </ng-container>
+                      </div>
+                    </div>
+
+                    <div class="col-xl-6">
+                      <div class="form-group">
+                        <label for="city" class="h6 font-weight-bold">{{'City' | translate}}:</label>
+                        <ng-select class="js-example-basic-multiple" [placeholder]="'SelectCity' | translate" formControlName="city" [multiple]="false" [dir]="utility.projectDirection">
+                          <ng-option *ngFor="let city of citylist" [value]="city.id">{{ city.name | translate}}</ng-option>
+                        </ng-select>
+                        <ng-container class="invalid"
+                          *ngIf="secondFormGroup.get('city').hasError('required') && secondFormGroup.get('city').touched">
+                          <p class="text-danger">{{'CityRequired' | translate}}</p>
+                        </ng-container>
+                      </div>
+                    </div>
+
+                    <div class="col-12 mt-3">
+                      <div class="form-group">
+                        <label for="location" class="h6 font-weight-bold">{{'Location' | translate}}:</label>
+                        <textarea class="form-control" rows="2" formControlName="location"></textarea>
+                        <ng-container class="invalid"
+                          *ngIf="secondFormGroup.get('location').hasError('required') && secondFormGroup.get('location').touched">
+                          <p class="text-danger">{{'LocationRequired' | translate}}</p>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr>
+                  <div class="row d-flex justify-content-between align-items-center p-3">
+                    <h5 class="font-weight-bold">{{'ClinicPhoneNumbers' | translate}}:</h5>
+                  </div>
+
+                  <div class="row mt-2" [formArrayName]="'phonenumbers'" *ngFor="let group of phonenumbersArray.controls; let i = index">
+                    <div class="col-xl-12" [formGroupName]="i">
+                      <div class="form-group">
+                        <label class="h6 font-weight-bold">{{'Number' | translate}} {{i + 1}}:</label>
+                        <div class="input-group">
+                          <input class="form-control digits" type="text" formControlName="number" onlyNumbers>
+                          <div class="input-group-append mx-1"><span class="input-group-text "><i class="icofont icofont-phone"></i></span></div>
+                          <button type="button" class="btn btn-outline-primary mx-1" (click)="addPhonenumber()">{{'Add' | translate}}</button>
+                          <button type="button" class="btn btn-outline-danger mx-0" (click)="removePhonenumber(i)">{{'Delete' | translate}}</button>
+                        </div>
+                      </div> 
+                    </div>
+                  </div>
+                  
+                  <button class="btn btn-primary pull-right" type="button" awNextStep (click)="nextStep()">{{'Next' | translate}}</button>
+                  <button class="btn btn-secondary pull-right mr-1" type="button" awPreviousStep>{{'Previous' | translate}}</button>
+                </form>
+              </aw-wizard-step>
+
+              <!--Third Step-->
+              <aw-wizard-step>
+                <form [formGroup]="thirdFormGroup">
+
+                  <div class="form-group">
+                    <label class="h6 font-weight-bold">{{'Logo' | translate}}:</label>
+                    <ngx-dropzone [multiple]="false" (change)="onSelect($event)"  class="mt-2" 
+                      accept="image/jpeg,image/jpg,image/png,image/gif"> 
+                      <ngx-dropzone-label>{{'UploadImage' | translate}}</ngx-dropzone-label>
+                      <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)" class="ngx-dropzone-preview">
+                        <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                      </ngx-dropzone-preview>
+                    </ngx-dropzone>
+                  </div>
+
+                  <hr>
+                  <div class="row d-flex justify-content-between align-items-center p-3">
+                    <h5 class="font-weight-bold">{{'WorkHour' | translate}}:</h5>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-xl-6">
+                      <div class="form-group">
+                        <label class="h6 font-weight-bold">{{'Form' | translate}}:</label>
+                        <ng-select class="js-example-basic-multiple mt-2" formControlName="fromDay" [multiple]="false" [dir]="utility.projectDirection">
+                          <ng-option *ngFor="let day of dayList" [value]="day.id">{{ day.name | translate}}</ng-option>
+                        </ng-select>
+                      </div>
+                    </div>
+                    <div class="col-xl-6">
+                      <div class="form-group">
+                        <label class="h6 font-weight-bold">{{'To' | translate}}:</label>
+                        <ng-select class="js-example-basic-multiple mt-2" formControlName="toDay" [multiple]="false" [dir]="utility.projectDirection">
+                          <ng-option *ngFor="let day of dayList" [value]="day.id">{{ day.name | translate}}</ng-option>
+                        </ng-select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row mt-2">
+                    <div class="col-xl-6">
+                      <div class="form-group">
+                        <label class="h6 font-weight-bold">{{'FormTime' | translate}}:</label>
+                        <ngb-timepicker id='gfg' [meridian]="true" formControlName="fromTime"></ngb-timepicker>
+                      </div>
+                    </div>
+                    <div class="col-xl-6">
+                      <div class="form-group">
+                        <label class="h6 font-weight-bold">{{'ToTime' | translate}}:</label>
+                        <ngb-timepicker id='gfg' [meridian]="true" formControlName="toTime"></ngb-timepicker>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button class="btn btn-primary pull-right" type="button" awNextStep (click)="nextStep()">{{'Next' | translate}}</button>
+                  <button class="btn btn-secondary pull-right mr-1" type="button" awPreviousStep>{{'Previous' | translate}}</button>
+                </form>
+              </aw-wizard-step>
+              
+              <aw-wizard-completion-step awEnableBackLinks>
+                <form [formGroup]="fourthFormGroup">
+                  <div class="form-group">
+                    <label class="control-label">Country</label>
+                    <input class="form-control mt-1" type="text" placeholder="Country" required="required"
+                      formControlName="country">
+                    <ng-container class="invalid"
+                      *ngIf="fourthFormGroup.get('country').hasError('required') && fourthFormGroup.get('country').touched">
+                      Country is required</ng-container>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">State</label>
+                    <input class="form-control mt-1" type="text" placeholder="State" required="required"
+                      formControlName="state">
+                    <ng-container class="invalid"
+                      *ngIf="fourthFormGroup.get('state').hasError('required') && fourthFormGroup.get('state').touched">
+                      State is required</ng-container>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label">City</label>
+                    <input class="form-control mt-1" type="text" placeholder="City" required="required"
+                      formControlName="city">
+                    <ng-container class="invalid"
+                      *ngIf="fourthFormGroup.get('city').hasError('required') && fourthFormGroup.get('city').touched">
+                      City is required</ng-container>
+                  </div>
+                  <button class="btn btn-success pull-right" type="button" (click)="finish()"
+                    [disabled]="!fourthFormGroup.valid">Finish</button>
+                    <button class="btn btn-secondary pull-right mr-1" type="button" awPreviousStep>{{'Previous' | translate}}</button>
+                  </form>
+              </aw-wizard-completion-step>
+            </aw-wizard>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

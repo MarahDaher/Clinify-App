@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { NavService, Menu } from '../../../../services/nav.service';
+import { BaseComponent } from '../../../base.component';
 
 @Component({
   selector: 'app-languages',
   templateUrl: './languages.component.html',
   styleUrls: ['./languages.component.scss']
 })
-export class LanguagesComponent implements OnInit {
+export class LanguagesComponent extends BaseComponent implements OnInit {
 
   public language: boolean = false;
 
@@ -48,14 +49,18 @@ export class LanguagesComponent implements OnInit {
   };
   
   constructor(
+    injector :Injector,
     private translate: TranslateService,
-    public navServices: NavService) {}
+    public navServices: NavService) {
+      super(injector);
+    }
 
   ngOnInit() {
   }
 
   changeLanguage(lang) {
-    this.translate.use(lang.code)
+    this.translate.use(lang.code);
+    this.utility.translate
     this.selectedLanguage = lang;
   }
 

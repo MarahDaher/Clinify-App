@@ -246,8 +246,6 @@
       +div {
         border-left: 1px solid $light-semi-gray;
       }
-
-      padding: 15px;
       text-align: center;
 
       h3 {
@@ -258,6 +256,7 @@
       h6 {
         font-size: 14px;
         color: $theme-body-sub-title-color;
+        padding-top: 15px;
       }
 
       i {

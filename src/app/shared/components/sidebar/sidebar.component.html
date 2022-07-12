@@ -36,8 +36,8 @@
       <li [class]="menuItem.headTitle1 ? 'sidebar-main-title' : 'sidebar-list'" 
           *ngFor="let menuItem of menuItems" [ngClass]="{active: menuItem.active}">
         <div *ngIf="menuItem.headTitle1">
-          <h6 class="lan-1">{{menuItem.headTitle1 | translate}}</h6>
-          <p class="lan-2">{{menuItem.headTitle2 | translate}}</p>
+          <h6 class="lan-1 d-flex m-0"><app-feather-icons [icon]="menuItem.icon" class="mx-2"></app-feather-icons> {{menuItem.headTitle1 | translate}}</h6>
+          <p class="lan-2" *menuItem.headTitle2>{{menuItem.headTitle2 | translate}}</p>
         </div>
 
         <label class="badge badge-{{menuItem.badgeType}}" *ngIf="menuItem.badgeType && menuItem.badgeValue">{{menuItem.badgeValue}}</label>

@@ -19,14 +19,13 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 
-
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

@@ -20,7 +20,7 @@ export class LayoutService {
   }
 
   constructor(
-    translate: TranslateService
+    public translate: TranslateService,
     ) { 
     if(this.config.settings.layout_type == 'rtl')
       document.getElementsByTagName('html')[0].setAttribute('dir', this.config.settings.layout_type);
@@ -30,14 +30,14 @@ export class LayoutService {
 
     translate.onLangChange.subscribe(res=>{
       if (res?.lang == 'en') {
-        this.config.settings.layout_type = 'ltr'
+        this.config.settings.layout_type = 'ltr';
       };     
       if (res?.lang == 'ar') {
-        this.config.settings.layout_type = 'rtl'
+        this.config.settings.layout_type = 'rtl';
       };   
       // change all dir in project    
       document.getElementsByTagName('html')[0].setAttribute('dir', this.config.settings.layout_type)
-    })
+    });
   }
 
 

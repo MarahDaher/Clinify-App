@@ -86,11 +86,20 @@ export class NavService implements OnDestroy {
 			headTitle1: 'Sample', headTitle2: 'Ready Sample Page.',
 		},
 		{
+			path: '/all-clinics', title: 'AllClinics', icon: 'briefcase', type: 'link'
+		},
+		{
 			title: 'Sample Page', icon: 'home', type: 'sub', badgeType: 'success', badgeValue: '2', active: true, children: [
 				{ path: '/sample-page', title: 'Sample 1', type: 'link' },
 				{ path: 'javascript:void(0);', title: 'Sample 2', type: 'extLink' }
 			]
 		},
+		{
+			headTitle1: 'Settings', headTitle2: '', icon: 'settings'
+		},
+		{
+			path: '/settings/clinics', title: 'Clinics', icon: 'package', type: 'link', bookmark: true
+		}
 	];
 
 	MEGAMENUITEMS: Menu[] = [

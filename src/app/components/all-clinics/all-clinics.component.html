@@ -1,0 +1,29 @@
+<app-breadcrumb [title]="'Clinics'" [active_item]="'AllClinics'"></app-breadcrumb>
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-md-6 col-xl-4 box-col-6 xl-50" *ngFor="let clinic of allClinics">
+            <div class="card custom-card p-1">
+                <div class="card-profile my-3"><img class="rounded-circle" [src]="clinic.logo" alt=""></div>
+                <div class="text-center profile-details my-4">
+                    <h4>{{clinic?.name}}</h4>
+                    <h6>{{clinic?.address}}</h6>
+
+                </div>
+                <div class="card-footer row">
+                    <div class="col-6 col-sm-6">
+                        <h6 class="counter">                         
+                            <i class="icofont icofont-ui-note mx-2"></i>
+                            {{'Details' | translate}}
+                        </h6>
+                    </div>
+                    <div class="col-6 col-sm-6">
+                        <h6 class="counter">
+                            <i class="icofont icofont-ui-edit mx-2"></i>
+                            {{'Edit' | translate}}
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

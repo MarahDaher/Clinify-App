@@ -12,6 +12,6 @@ export class OnlyAlphabetsDirective {
 
   @HostListener('keypress', ['$event']) public disableKeys(e) {
     document.all ? e.keyCode : e.keyCode;
-    return (e.keyCode === 8 || (e.keyCode >= 97 && e.keyCode <= 122) || (e.keyCode >= 65 && e.keyCode <= 90));
+    return (e.keyCode === 8 || (e.keyCode >= 97 && e.keyCode <= 122) || (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode === 32));
   }
 }

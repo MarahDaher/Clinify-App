@@ -816,7 +816,7 @@
                                         color: rgba(43, 43, 43, 0.6);
                                         letter-spacing: 0.06em;
                                         font-weight: 500;
-                                        font-family: Roboto;
+                                        font-family: $font-cairo;
                                         transition: all 0.3s ease;
                                         &:after {
                                             left: 20px;
@@ -946,7 +946,7 @@
     .sidebar-main-title {
         >div {
             background-color: rgba($primary-color, 0.06);
-            padding: 15px 17px;
+            padding: 10px 5px;
             border-radius: 10px;
         }
         h6 {
@@ -1177,7 +1177,7 @@
                                     font-weight: 500;
                                     span {
                                         letter-spacing: 0.7px;
-                                        font-family: Roboto;
+                                        font-family: $font-cairo;
                                         text-transform: capitalize;
                                     }
                                     &.link-nav {
@@ -1257,7 +1257,7 @@
                                     }
                                 }
                                 a {
-                                    padding: 12px 15px;
+                                    padding: 12px 17px;
                                     position: relative;
                                     color: #222222;
                                     transition: all 0.3s ease;
@@ -1341,7 +1341,7 @@
                                             position: relative;
                                             letter-spacing: 0.06em;
                                             font-weight: 500;
-                                            font-family: Roboto;
+                                            font-family: $font-cairo;
                                             transition: all 0.3s ease;
                                             &:after {
                                                 left: 20px;
@@ -1394,7 +1394,7 @@
                                                     display: block;
                                                     letter-spacing: 0.06em;
                                                     font-weight: 500;
-                                                    font-family: Roboto;
+                                                    font-family: $font-cairo;
                                                     cursor: pointer;
                                                     &:after {
                                                         left: 25px;
@@ -1418,7 +1418,7 @@
                                                             display: block;
                                                             letter-spacing: 0.06em;
                                                             font-weight: 500;
-                                                            font-family: Roboto;
+                                                            font-family: $font-cairo;
                                                             &:after {
                                                                 display: none;
                                                             }
@@ -1715,7 +1715,7 @@
                                 color: $dark-color;
                                 span {
                                     letter-spacing: 0.7px;
-                                    font-family: Roboto;
+                                    font-family: $font-cairo;
                                     text-transform: capitalize;
                                     color: $dark-color;
                                 }

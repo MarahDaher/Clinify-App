@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 // Components
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { FeatherIconsComponent } from './components/feather-icons/feather-icons.component';
+import { IcoIconsComponent } from './components/ico-icons/ico-icons.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ContentComponent } from './components/layout/content/content.component';
@@ -32,6 +33,7 @@ import { ShowOptionsDirective } from './directives/show-options.directive';
 // Services
 import { LayoutService } from './services/layout.service';
 import { NavService } from './services/nav.service';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import { NavService } from './services/nav.service';
     BookmarkComponent,
     CartComponent,
     MessageBoxComponent,
-    MyAccountComponent
+    MyAccountComponent,
+    IcoIconsComponent
   ],
   imports: [
     CommonModule,
@@ -64,7 +67,9 @@ import { NavService } from './services/nav.service';
     ReactiveFormsModule,
     NgbModule,
     DragulaModule.forRoot(),
-    TranslateModule
+    TranslateModule,
+    NgxDropzoneModule,
+
   ],
   providers: [
     NavService,
@@ -78,10 +83,12 @@ import { NavService } from './services/nav.service';
     LoaderComponent,
     BreadcrumbComponent,
     FeatherIconsComponent,
+    IcoIconsComponent,
     TapToTopComponent,
     DisableKeyPressDirective,
     OnlyAlphabetsDirective,
-    OnlyNumbersDirective
+    OnlyNumbersDirective,
+    NgxDropzoneModule
   ],
 })
 export class SharedModule { }

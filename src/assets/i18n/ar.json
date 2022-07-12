@@ -1,3 +1,57 @@
 {
-    "Dashboard": "لوحة التحكم"
+    "AddNewClinic": "إضافة مركز جديد",
+    "Add": "إضافة",
+    "AllClinics":"كل المراكز",
+    "Clinics": "عيادات و مراكز التجميل",
+    "ClinicName": "اسم المركز",
+    "ConfirmPassword":"تأكيد كلمة السر",
+    "ClinicDetails":"تفاصيل المركز",
+    "ClinicPhoneNumbers":"أرقام التواصل",
+    "ClinicWorkHour":"ساعات دوام المركز",
+    "Country":"البلد",
+    "City":"المحافظة",
+
+    "Dashboard": "لوحة التحكم",
+    "Damascus":"دمشق",
+    "Delete":"حذف",
+    "Details":"تفاصيل",
+    "Edit":"تعديل",
+    "EmailAddress": "الإيميل",
+    "Form":"من",
+    "FormTime":"من الساعة",
+    "NewClinic": "مركز جديد",
+    "Number":"الرقم",
+    "Next":"التالي",
+    "Location": "عنوان المركز",
+    "Logo": "تحميل شعار المركز",
+    "To":"إلى",
+    "ToTime":"إلى الساعة",
+    "Password":"كلمة السر",
+    "Previous":"السابق",
+    "Settings": "الإعدادات",
+    "SelectCountry": "اختر البلد",
+    "SelectCity":"اختر المحافظة",
+    "Syria":"سوريا",
+    "UploadImage":"تحميل صورة",
+    "WorkHour":"أوقات الدوام",
+
+    "ClinicNameRequired": "يجب ادخال اسم المركز",
+    "CountryRequired":"يجب تحديد البلد",
+    "CityRequired":"يجب تحديد المحافظة",
+    "LocationRequired": "يجب ادخال عنوان المركز ",
+    "EmailRequired": "يجب ادخال ايميل المركز",
+    "PasswordRequired" : "يجب إدخال كلمة السر",
+    "ConfirmPasswordRequired": "يجب تأكيد كلمة السر",
+    "PasswordsDoesntmatch": "كلمة السر غير متطابقة",
+
+
+
+    "Sunday":"الأجد",
+    "Monday":"الاثنين",
+    "Tuesday":"الثلاثاء",
+    "Wednesday":"الأربعاء",
+    "Thursday":"الخميس",
+    "Friday":"الجمعة",
+    "Saturday":"السبت"
+
 }
