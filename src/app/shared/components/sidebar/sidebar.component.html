@@ -56,7 +56,8 @@
           [class.link-nav]="!menuItem.children"
           [ngClass]="{active: menuItem.active}"
           *ngIf="menuItem.type === 'link'">
-          <app-feather-icons [icon]="menuItem.icon"></app-feather-icons><span>{{menuItem.title | translate}}</span>
+          <i *ngIf="menuItem.iconType === 'icofont'" class="icofont icofont-{{menuItem.icon}}"></i>
+          <app-feather-icons *ngIf="menuItem.iconType !== 'icofont'"  [icon]="menuItem.icon"></app-feather-icons><span>{{menuItem.title | translate}}</span>
           <div class="according-menu">
             <i class="fa fa-angle-{{menuItem.active ? 'down' : 'right'}} pull-right" *ngIf="menuItem.children"></i>
           </div>

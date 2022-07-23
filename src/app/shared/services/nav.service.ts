@@ -16,6 +16,7 @@ export interface Menu {
 	active?: boolean;
 	bookmark?: boolean;
 	children?: Menu[];
+	iconType?: string;
 }
 
 @Injectable({
@@ -83,23 +84,51 @@ export class NavService implements OnDestroy {
 
 	MENUITEMS: Menu[] = [
 		{
-			headTitle1: 'Sample', headTitle2: 'Ready Sample Page.',
+			path: '/dashboard', title: 'Dashboard', icon: 'home', type: 'link'
 		},
+
 		{
-			path: '/all-clinics', title: 'AllClinics', icon: 'briefcase', type: 'link'
+			headTitle1: ' ', headTitle2: '',
 		},
+			{
+				path: '/clinic/services', title: 'ClinicServices', icon: 'zap', type: 'link'
+			},
+			{
+				path: '/clinic/devices', title: 'ClinicDevices', icon: 'tablet', type: 'link'
+			},
+			{
+				path: '/clinic/offers', title: 'ClinicOffers', icon: 'gift', type: 'link'
+			},
 		{
-			title: 'Sample Page', icon: 'home', type: 'sub', badgeType: 'success', badgeValue: '2', active: true, children: [
-				{ path: '/sample-page', title: 'Sample 1', type: 'link' },
-				{ path: 'javascript:void(0);', title: 'Sample 2', type: 'extLink' }
-			]
+			headTitle1: ' ', headTitle2: '',
 		},
+			{
+				path: '/customers', title: 'Customers', icon: 'users-alt-5', type: 'link' , iconType: 'icofont'
+			},
+			{
+				path: '/appointments', title: 'Appointments', icon: 'law-document', type: 'link' , iconType: 'icofont'
+			},
 		{
-			headTitle1: 'Settings', headTitle2: '', icon: 'settings'
+			headTitle1: ' ', headTitle2: '',
 		},
+			{
+				path: '/doctors', title: 'Doctors', icon: 'doctor', type: 'link' , iconType: 'icofont'
+			},
+			{
+				path: '/employees', title: 'Employees', icon: 'nurse-alt', type: 'link' , iconType: 'icofont'
+			},
+			{
+				path: '/tasks', title: 'Tasks', icon: 'check-square', type: 'link'
+			},
+			{
+				path: '/reports', title: 'Reports', icon: 'file-text', type: 'link' 
+			},
 		{
-			path: '/settings/clinics', title: 'Clinics', icon: 'package', type: 'link', bookmark: true
-		}
+			headTitle1: ' ', headTitle2: '',
+		},
+			{
+				path: '/settings', title: 'Settings', icon: 'settings', type: 'link'
+			}
 	];
 
 	MEGAMENUITEMS: Menu[] = [

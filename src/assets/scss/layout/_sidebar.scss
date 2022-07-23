@@ -945,8 +945,8 @@
     }
     .sidebar-main-title {
         >div {
-            background-color: rgba($primary-color, 0.06);
-            padding: 10px 5px;
+            background-color: #7366ff1f;
+            padding: 2px 5px;
             border-radius: 10px;
         }
         h6 {
@@ -1243,6 +1243,11 @@
                                                 stroke: var(--theme-deafult);
                                                 transition: all 0.3s ease;
                                             }
+                                            .icofont{
+                                                fill: rgba($primary-color, 0.10%);
+                                                stroke: var(--theme-deafult);
+                                                transition: all 0.3s ease;
+                                            }
                                             span {
                                                 color: var(--theme-deafult);
                                                 transition: all 0.3s ease;
@@ -1261,7 +1266,7 @@
                                     position: relative;
                                     color: #222222;
                                     transition: all 0.3s ease;
-                                    svg {
+                                    svg{
                                         width: 18px;
                                         margin-right: 10px;
                                         vertical-align: bottom;
@@ -1269,6 +1274,15 @@
                                         stroke-width: 2.3px;
                                         color: $dark-color;
                                         transition: all 0.3s ease;
+                                    }
+                                    .icofont{
+                                        font-size: 19px;
+                                        vertical-align: bottom;
+                                        float: none;
+                                        stroke-width: 2.3px;
+                                        color: $dark-color;
+                                        transition: all 0.3s ease;
+                                        // margin-left: 10px;
                                     }
                                     .sub-arrow {
                                         right: 20px;
@@ -1451,8 +1465,8 @@
                                         transition: all 0.5s ease;
                                         position: relative;
                                         // box-shadow: 0px 0px 12px 0px rgba($primary-color, 0.35);
-                                        margin-bottom: 10px;
-                                        background-color: lighten($primary-color, 22%);
+                                        // margin-bottom: 10px;
+                                        // background-color: lighten($primary-color, 22%);
                                         .according-menu {
                                             i {
                                                 color: var(--theme-deafult);
@@ -1510,7 +1524,7 @@
                 }
             }
             .page-body {
-                min-height: calc(100vh - 80px);
+                // min-height: calc(100vh - 80px);
                 margin-top: 80px;
                 margin-left: 280px;
                 // animation: pagebody 1000ms ease-in-out;

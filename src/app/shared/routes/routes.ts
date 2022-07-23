@@ -7,8 +7,12 @@ export const content: Routes = [
     loadChildren: () => import('../../components/all-clinics/all-clinics.module').then(m => m.AllClinicsModule)
   },
   {
-    path: 'sample-page',
-    loadChildren: () => import('../../components/sample/sample.module').then(m => m.SampleModule)
+    path: 'clinic',
+    loadChildren: () => import('../../components/clinic-admin/clinic-admin.module').then(m => m.ClinicAdminModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('../../components/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
     path: 'settings',
