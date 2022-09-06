@@ -1,1 +1,102 @@
 <app-breadcrumb [title]="'AddNewDevice'" [items]="['ClinicDevices']" [active_item]="'AddNewDevice'"></app-breadcrumb>
+<div class="container-fluid">
+    <form [formGroup]="deviceForm">
+        <div class="row mb-4">
+            <div class="col-xl-12">
+                <div class="text-right">
+                    <div class="form-group mb-0 mr-0"></div><a class="btn btn-sm btn-primary" (click)="addNewDevice()" [routerLink]="['/clinic/devices']">{{'Save' | translate}}</a>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header p-3">
+                        <h5>{{'General'| translate}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-6 form-group">
+                                <label for="name" class="h6 font-weight-bold">{{'DeviceName'
+                                    | translate }}:</label>
+                                <input class="form-control" type="text"
+                                    required="required" formControlName="name"
+                                    onlyAlphabets>
+                                <ng-container class="invalid"
+                                    *ngIf="deviceForm.get('name').hasError('required')
+                                    && deviceForm.get('name').touched">
+                                    <p class="text-danger">
+                                        {{'' | translate}}
+                                    </p>
+                                </ng-container>
+                            </div>
+                            <div class="col-xl-6 form-group">
+                                <label for="uses" class="h6 font-weight-bold">{{'Uses'
+                                    | translate }}:</label>
+                                <input class="form-control" type="text"
+                                    required="required" formControlName="uses"
+                                    onlyAlphabets>
+                                <ng-container class="invalid"
+                                    *ngIf="deviceForm.get('uses').hasError('required')
+                                    && deviceForm.get('uses').touched">
+                                    <p class="text-danger">
+                                        {{'' | translate}}
+                                    </p>
+                                </ng-container>
+                            </div>
+
+                            <div class="col-xl-12 form-group">
+                                <label for="desciption" class="h6
+                                    font-weight-bold">{{'DeviceInfo' | translate
+                                    }}:</label>
+                                <textarea class="form-control" rows="2"
+                                    formControlName="desciption"></textarea>
+                                <ng-container class="invalid"
+                                    *ngIf="deviceForm.get('desciption').hasError('required')
+                                    && deviceForm.get('desciption').touched">
+                                    <p class="text-danger">
+                                        {{'' | translate}}
+                                    </p>
+                                </ng-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header p-3">
+                        <h5>{{'Settings'| translate}}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-12 my-2">
+                                <span class="d-flex justify-content-between align-items-center" >
+                                    <label class="col-form-label m-r-10">{{'EnableOffers' | translate}}</label>
+                                    <div class="media-body text-right icon-state">
+                                        <label class="switch">
+                                          <input type="checkbox" checked=""><span class="switch-state"></span>
+                                        </label>
+                                      </div>
+                                </span>
+                            </div>
+                            <div class="col-xl-12 my-2">
+                                <span class="d-flex justify-content-between align-items-center" >
+                                    <label class="col-form-label m-r-10">{{'EnableMenPrices' | translate}}</label>
+                                    <div class="media-body text-right icon-state">
+                                        <label class="switch">
+                                          <input type="checkbox" checked=""><span class="switch-state"></span>
+                                        </label>
+                                      </div>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

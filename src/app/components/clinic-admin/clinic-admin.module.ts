@@ -11,6 +11,9 @@ import { ClinicDevicesComponent } from './clinic-devices/clinic-devices.componen
 import { ClinicOffersComponent } from './clinic-offers/clinic-offers.component';
 import { AddEditServiceComponent } from './clinic-services/add-edit-service/add-edit-service.component';
 import { AddEditDeviceComponent } from './clinic-devices/add-edit-device/add-edit-device.component';
+import { ServicePartsComponent } from './clinic-services/service-parts/service-parts.component';
+import { AddEditServicePartComponent } from './clinic-services/service-parts/add-edit-service-part/add-edit-service-part.component';
+import { ServiceDetailsComponent } from './clinic-services/service-details/service-details.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { AddEditDeviceComponent } from './clinic-devices/add-edit-device/add-edi
     ClinicDevicesComponent,
     ClinicOffersComponent,
     AddEditServiceComponent,
-    AddEditDeviceComponent
+    AddEditDeviceComponent,
+    ServicePartsComponent,
+    AddEditServicePartComponent,
+    ServiceDetailsComponent
   ],
   imports: [
     CommonModule,

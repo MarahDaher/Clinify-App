@@ -21,4 +21,32 @@
         </div>
       </div>
     </div>
+
+    <div class="row mt-3">
+      <div class="col-md-4 col-xl-3 box-col-6 xl-50 my-3" *ngFor="let device of AllDevices">
+        <a [routerLink]="'/clinic/devices/1/parts'" class="text-dark">
+          <div class="card custom-card p-1">
+            <div class="text-center profile-details mt-4 mb-2">
+              <h5>{{device?.name}}</h5>
+              <p class="mt-3">{{device?.uses}}</p>
+            </div>
+            <div class="card-footer row">
+              <div class="col-6 col-sm-6">
+                <h6 class="counter">
+                  <i class="icofont icofont-ui-note mx-2"></i>
+                  {{'Details' | translate}}
+                </h6>
+              </div>
+              <div class="col-6 col-sm-6">
+                <h6 class="counter">
+                  <i class="icofont icofont-ui-edit mx-2"></i>
+                  {{'Edit' | translate}}
+                </h6>
+              </div>
+            </div>
+  
+          </div>
+        </a>
+      </div>
+    </div>
 </div>
