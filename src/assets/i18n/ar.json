@@ -3,8 +3,11 @@
     "Add": "إضافة",
     "AddNewService":"إضافة خدمة جديدة",
     "AddNewDevice":"إضافة جهاز جديد",
+    "AddNewOffer":"إضافة عرض جديد",
+    "AddNewTool":"إضافة تقنية جديدة",
     "AllClinics":"كل المراكز",
     "Appointments":"المواعيد",
+    "AvailableServices":"الخدمات والأجهزة المتوفرة",
     "Clinics": "عيادات و مراكز التجميل",
     "ClinicName": "اسم المركز",
     "ClinicServices":"خدمات المركز",
@@ -24,16 +27,13 @@
     "Delete":"حذف",
     "Details":"تفاصيل",
     "Device":"الجهاز",
+    "DeviceName": "اسم الجهاز",
     "DeviceInfo":"معلومات الجهاز",
     "Edit":"تعديل",
     "EmailAddress": "الإيميل",
     "Employees":"الموظفين",
     "Form":"من",
     "FormTime":"من الساعة",
-
-
-    "General":"معلومات عامة",
-
 
     "NewClinic": "مركز جديد",
     "Number":"الرقم",
@@ -53,11 +53,13 @@
     "SelectCountry": "اختر البلد",
     "ServiceDetails":"تفاصيل الخدمة",
     "ServiceName":"اسم الخدمة",
+    "ServiceInfo":"معلومات عن الخدمة",
     "SelectCity":"اختر المحافظة",
     "SavingsOffers":"عروض التوفير",
     "MenPrices":"أسعار الجلسات للرجال",
     "Syria":"سوريا",
     "Search":"بحث",
+    "Save":"حفظ",
     "Select":"اختر",
     "UploadImage":"تحميل صورة",
     "WorkHour":"أوقات الدوام",
@@ -79,6 +81,27 @@
     "Wednesday":"الأربعاء",
     "Thursday":"الخميس",
     "Friday":"الجمعة",
-    "Saturday":"السبت"
+    "Saturday":"السبت",
+
+
+
+    "LaserCare":"إزالة الشعر",
+    "SkinCare":"العناية بالبشرة",
+
+
+
+
+
+
+
+
+
+    "General":"معلومات عامة",
+    "Uses":"الاستخدام",
+    "EnableOffers":"تفعيل عروض التوفير",
+    "EnableMenPrices": "أسعار خاصة للرجال",
+    "ShowServiceParts":"إظهار صفحة اجزاء الخدمة",
+    "ShowServiceOffers": "عرض قسم التوفير",
+    "ShowMenPrices":"إضافة اسعار للرجال"
 
 }

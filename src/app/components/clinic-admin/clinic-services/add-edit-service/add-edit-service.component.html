@@ -1,6 +1,13 @@
 <app-breadcrumb [title]="'AddNewService'" [items]="['ClinicServices']" [active_item]="'AddNewService'"></app-breadcrumb>
-<div class="container-fluid mt-4">
+<div class="container-fluid">
     <form [formGroup]="clinicServiceForm">
+        <div class="row mb-4">
+            <div class="col-xl-12">
+                <div class="text-right">
+                    <div class="form-group mb-0 mr-0"></div><a class="btn btn-sm btn-primary" (click)="addNewServicePart()" [routerLink]="['/clinic/services']">{{'Save' | translate}}</a>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -9,132 +16,74 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-xl-6 form-group">
+                            <div class="col-xl-12 form-group">
                                 <label for="name" class="h6 font-weight-bold">{{'ServiceName' | translate }}:</label>
                                 <input class="form-control" type="text" required="required" formControlName="name" onlyAlphabets>
-                                <ng-container class="invalid"
-                                    *ngIf="clinicServiceForm.get('name').hasError('required') && clinicServiceForm.get('name').touched">
+                                <ng-container class="invalid" *ngIf="clinicServiceForm.get('name').hasError('required') && clinicServiceForm.get('name').touched">
                                     <p class="text-danger">
-                                        {{'ClinicNameRequired' | translate}}
+                                        {{'' | translate}}
                                     </p>
                                 </ng-container>
                             </div>
-                            <div class="col-xl-6 form-group">
-                                <label for="device" class="h6 font-weight-bold">{{'Device' | translate}}:</label>
-                                <ng-select class="js-example-basic-multiple" [placeholder]="'Select' | translate"
-                                    formControlName="device" [multiple]="false" [dir]="utility.projectDirection">
-                                    <ng-option *ngFor="let device of devicesList" [value]="device.id">{{ device.name | translate}}</ng-option>
-                                </ng-select>
+                        
+                            <div class="col-xl-12 form-group">
+                                <label for="desciption" class="h6 font-weight-bold">{{'ServiceInfo' | translate}}:</label>
+                                <textarea class="form-control" rows="2" formControlName="desciption"></textarea>
                                 <ng-container class="invalid"
-                                    *ngIf="clinicServiceForm.get('device').hasError('device') && clinicServiceForm.get('device').touched">
-                                    <p class="text-danger">{{'CountryRequired' | translate}}</p>
+                                    *ngIf="clinicServiceForm.get('desciption').hasError('required')
+                                    &&
+                                    clinicServiceForm.get('desciption').touched">
+                                    <p class="text-danger">
+                                        {{'' | translate}}
+                                    </p>
                                 </ng-container>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header p-3">
+                        <h5>{{'Settings'| translate}}</h5>
+                    </div>
+                    <div class="card-body">
                         <div class="row">
-                            <div class="col-xl-12" *ngIf="deviceControl.value">
-                                <h6 class="font-weight-bold"> {{'DeviceInfo' | translate}}:</h6>
-                                <span>
-                                    <p class="mt-3">وقت السكانر لسرعة وقت الجلسة , نظام الضربة المربعةلتغطية المساحة بدون نقص يتمتع بنظام تبريد و مانع حروق ونظام تعقيم عالمي بدون استخدام اي زيت او جيل.</p>
+                            <div class="col-xl-12 my-2">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <label class="col-form-label m-r-10">{{'ShowServiceParts' | translate}}</label>
+                                    <div class="media-body text-right icon-state">
+                                        <label class="switch">
+                                            <input type="checkbox" checked="" formControlName="showServiceParts"><span
+                                                class="switch-state"></span>
+                                        </label>
+                                    </div>
                                 </span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header p-3 d-flex justify-content-between align-items-center">
-                        <h5>{{'ServiceDetails'| translate}}</h5>
-                        <button type="button" class="btn btn-outline-primary addbtn" (click)="addServicePrice()">{{'Add' | translate}}</button>
-                    </div>
-                    <div class="card-body">
-                        <div [formArrayName]="'servicePrice'" *ngFor="let price of servicePriceGroup.controls; let i = index">
-                            <div [formGroupName]="i">
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <label class="h6 font-weight-bold">{{'Name' | translate}}:</label>
-                                        <input class="form-control" type="text" formControlName="name">
+                            <div class="col-xl-12 my-2">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <label class="col-form-label m-r-10">{{'ShowServiceOffers' | translate}}</label>
+                                    <div class="media-body text-right icon-state">
+                                        <label class="switch">
+                                            <input type="checkbox" checked="" formControlName="showServiceOffers"><span
+                                                class="switch-state"></span>
+                                        </label>
                                     </div>
-                                    <div class="col-xl-6">
-                                        <label class="h6 font-weight-bold">{{'Price' | translate}}:</label>
-                                        <span class="d-flex">
-                                            <div class="input-group">
-                                                <input class="form-control digits" type="number" formControlName="price" onlyNumbers>
-                                                <div class="input-group-append"><span class="input-group-text">{{'SP' | translate}}</span></div>
-                                            </div>
-                                            <button type="button" class="btn btn-outline-danger mx-3 px-2" (click)="removeServicePrice(i)" *ngIf="servicePriceGroup.controls.length > 1"><i class="icofont icofont-trash"></i></button>
-                                        </span>
-                                    </div>
-                                </div>
+                                </span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header p-3 d-flex justify-content-between align-items-center">
-                        <h5>{{'SavingsOffers'| translate}}</h5>
-                        <button type="button" class="btn btn-outline-primary" (click)="addSavingsOffers()">{{'Add' | translate}}</button>
-                    </div>
-                    <div class="card-body">
-                        <div [formArrayName]="'savingsOffers'" *ngFor="let price of savingsOfferseGroup.controls; let i = index">
-                            <div [formGroupName]="i">
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <label class="h6 font-weight-bold">{{'Name' | translate}}:</label>
-                                        <input class="form-control" type="text" formControlName="name">
+                            <div class="col-xl-12 my-2">
+                                <span class="d-flex justify-content-between align-items-center">
+                                    <label class="col-form-label m-r-10">{{'ShowMenPrices' | translate}}</label>
+                                    <div class="media-body text-right icon-state">
+                                        <label class="switch">
+                                            <input type="checkbox" checked="" formControlName="showMenPrices"><span
+                                                class="switch-state"></span>
+                                        </label>
                                     </div>
-                                    <div class="col-xl-6">
-                                        <label class="h6 font-weight-bold">{{'Price' | translate}}:</label>
-                                        <span class="d-flex">
-                                            <div class="input-group">
-                                                <input class="form-control digits" type="number" formControlName="price" onlyNumbers>
-                                                <div class="input-group-append"><span class="input-group-text">{{'SP' | translate}}</span></div>
-                                            </div>
-                                            <button type="button" class="btn btn-outline-danger mx-3 px-2" (click)="removeSavingsOffers(i)" *ngIf="savingsOfferseGroup.controls.length > 1"><i class="icofont icofont-trash"></i></button>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header p-3 d-flex justify-content-between align-items-center">
-                        <h5>{{'MenPrices'| translate}}</h5>
-                        <button type="button" class="btn btn-outline-primary" (click)="addMenPrices()">{{'Add' | translate}}</button>
-                    </div>
-                    <div class="card-body">
-                        <div [formArrayName]="'menPrices'" *ngFor="let price of menPricesGroup.controls; let i = index">
-                            <div [formGroupName]="i">
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <label class="h6 font-weight-bold">{{'Name' | translate}}:</label>
-                                        <input class="form-control" type="text" formControlName="name">
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <label class="h6 font-weight-bold">{{'Price' | translate}}:</label>
-                                        <span class="d-flex">
-                                            <div class="input-group">
-                                                <input class="form-control digits" type="number" formControlName="price" onlyNumbers>
-                                                <div class="input-group-append"><span class="input-group-text">{{'SP' | translate}}</span></div>
-                                            </div>
-                                            <button type="button" class="btn btn-outline-danger mx-3 px-2" (click)="removeMenPrices(i)" *ngIf="menPricesGroup.controls.length > 1"><i class="icofont icofont-trash"></i></button>
-                                        </span>
-                                    </div>
-                                </div>
+                                </span>
                             </div>
                         </div>
                     </div>

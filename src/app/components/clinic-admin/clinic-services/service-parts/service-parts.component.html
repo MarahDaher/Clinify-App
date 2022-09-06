@@ -1,0 +1,63 @@
+<app-breadcrumb [title]="'LaserCare'" [items]="['ClinicServices']" [active_item]="'LaserCare'"></app-breadcrumb>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 my-2 d-flex">
+        <h5>{{'AvailableServices'| translate }}</h5>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-md-12 project-list">
+          <div class="card">
+            <div class="row">
+              <div class="col-sm-6 form-group mb-0">
+                <input class="form-control m-input" type="text"
+                  [placeholder]="'Search' | translate">
+                <!-- <ul class="nav nav-tabs border-tab" id="top-tab" role="tablist">
+                    <li class="nav-item"><a class="nav-link active" id="top-home-tab" data-toggle="tab" href="javascript:void(0)" role="tab" aria-controls="top-home" aria-selected="true"><i data-feather="target"></i>All</a></li>
+                    <li class="nav-item"><a class="nav-link" id="profile-top-tab" data-toggle="tab" href="javascript:void(0)" role="tab" aria-controls="top-profile" aria-selected="false"><i data-feather="info"></i>Doing</a></li>
+                    <li class="nav-item"><a class="nav-link" id="contact-top-tab" data-toggle="tab" href="javascript:void(0)" role="tab" aria-controls="top-contact" aria-selected="false"><i data-feather="check-circle"></i>Done</a></li>
+                  </ul> -->
+              </div>
+              <div class="col-sm-6">
+                <div class="text-right">
+                  <div class="form-group mb-0 mr-0"></div><a class="btn btn-primary"
+                    [routerLink]="['/clinic/services/1/add-part']"> <i
+                      data-feather="plus-square"> </i>{{'Add' | translate}}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+    <div class="row mt-3">
+      <div class="col-md-4 col-xl-3 box-col-6 xl-50 my-3" *ngFor="let service of servicePart">
+        <a [routerLink]="'/clinic/service/1/details'" class="text-dark">
+          <div class="card custom-card p-1">
+            <div class="text-center profile-details mt-4 mb-2">
+              <h5>{{service?.name}}</h5>
+            </div>
+            <div class="card-footer row">
+              <div class="col-6 col-sm-6">
+                <h6 class="counter">
+                  <i class="icofont icofont-ui-note mx-2"></i>
+                  {{'Details' | translate}}
+                </h6>
+              </div>
+              <div class="col-6 col-sm-6">
+                <h6 class="counter">
+                  <i class="icofont icofont-ui-edit mx-2"></i>
+                  {{'Edit' | translate}}
+                </h6>
+              </div>
+            </div>
+  
+          </div>
+        </a>
+      </div>
+    </div>
+
+</div>

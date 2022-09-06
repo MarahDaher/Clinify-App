@@ -7,6 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClinicDevicesComponent implements OnInit {
 
+  //List
+  AllDevices = [
+    {
+    id: 1,
+    name: 'كوانتا',
+    uses: 'إزالة الشعر'
+    },
+    {
+      id: 2,
+      name: 'Thundr',
+      uses: 'إزالة الشعر'
+      },
+  ]
   constructor() { }
 
   ngOnInit(): void {

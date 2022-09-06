@@ -1,0 +1,28 @@
+<app-breadcrumb [title]="'SkinCare'" [items]="['ClinicServices' , 'SkinCare']" [active_item]="'SkinCare'"></app-breadcrumb>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 my-2 d-flex justify-content-between ">
+        <h5>{{'AvailableServices'| translate }}</h5>
+        <div class="form-group mb-0 mr-0"></div><a class="btn btn-primary" [routerLink]="['/clinic/services/2/add-part']">{{'Add' | translate}}</a>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-xl-12" *ngFor="let details of serviceDetials">
+            <div class="card">
+                <div class="row p-3">
+                    <div class="col-md-6">
+                        <h5>{{details?.name}}</h5>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-end align-items-center">
+                        <h5 class="mb-0 mx-2">{{details?.price + ' SP' | translate}}</h5>
+                        <div class="btn-group mx-3" role="group">
+                            <button class="btn btn-sm btn-outline-success"><i class="icofont icofont-ui-edit"></i></button>
+                            <button class="btn btn-sm btn-outline-danger"><i class="fa fa fa-italic"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
